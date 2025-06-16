@@ -28,6 +28,71 @@ body {
     backdrop-filter: blur(10px);
 }
 
+/* Story Mode Button */
+.story-mode-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+.story-mode-button {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 20px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-height: 80px;
+    min-width: 300px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.story-mode-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+.story-mode-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(255, 107, 107, 0.3);
+}
+
+.story-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.story-text {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.story-mode-button p {
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.9;
+    font-weight: normal;
+}
+
+.story-mode-button.active {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.story-mode-button.active:hover {
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+}
+
 #app {
     padding-top: 80px;
 }

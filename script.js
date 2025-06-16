@@ -4,6 +4,35 @@ class KioskApp {
         this.navigationHistory = [];
         this.inactivityTimer = null;
         this.inactivityTimeout = 30000; // 30 seconds
+        this.storyMode = false;
+        this.storyModeTimer = null;
+        this.storyModeInterval = 8000; // 8 seconds per screen
+        this.storyModeIndex = 0;
+        this.storyModeSequence = [
+            'welcome-screen',
+            'main-menu',
+            'about-ecosystem',
+            'ecosystem-overview',
+            'skills-gap-challenge',
+            'three-pillar-solution',
+            'why-matters-now',
+            'key-statistics',
+            'three-organizations',
+            'icr247-details',
+            'icr247-overview',
+            'icr247-services',
+            'icr247-education',
+            'gennflex-details',
+            'gakuto-details',
+            'revolutionary-methods',
+            'hands-on-learning',
+            'technology-integration',
+            'impact-stories',
+            'future-vision',
+            'contact-learn',
+            'organizations-contact',
+            'get-involved'
+        ];
         this.init();
     }
 
@@ -128,6 +157,85 @@ class KioskApp {
     goHome() {
         this.showScreen('welcome-screen');
     }
+
+    toggleStoryMode() {
+        if (this.storyMode) {
+            this.stopStoryMode();
+        } else {
+            this.startStoryMode();
+        }
+    }
+
+    startStoryMode() {
+        this.storyMode = true;
+        this.storyModeIndex = 0;
+        
+        const storyButton = document.querySelector('.story-mode-button');
+        if (storyButton) {
+            storyButton.classList.add('active');
+            storyButton.querySelector('.story-text').textContent = 'Exit Story Mode';
+            storyButton.querySelector('p').textContent = 'Click to return to interactive mode';
+        }
+
+        this.nextStoryScreen();
+        this.storyModeTimer = setInterval(() => {
+            this.nextStoryScreen();
+        }, this.storyModeInterval);
+
+        if (this.inactivityTimer) {
+            clearTimeout(this.inactivityTimer);
+        }
+    }
+
+    stopStoryMode() {
+        this.storyMode = false;
+        
+        if (this.storyModeTimer) {
+            clearInterval(this.storyModeTimer);
+            this.storyModeTimer = null;
+        }
+
+        const storyButton = document.querySelector('.story-mode-button');
+        if (storyButton) {
+            storyButton.classList.remove('active');
+            storyButton.querySelector('.story-text').textContent = 'Story Mode';
+            storyButton.querySelector('p').textContent = 'Automatic hands-free tour through all content';
+        }
+
+        this.resetInactivityTimer();
+    }
+
+    nextStoryScreen() {
+        if (!this.storyMode) return;
+
+        const nextScreen = this.storyModeSequence[this.storyModeIndex];
+        if (nextScreen) {
+            this.showScreen(nextScreen);
+            this.storyModeIndex++;
+            
+            if (this.storyModeIndex >= this.storyModeSequence.length) {
+                this.storyModeIndex = 0;
+            }
+        }
+    }
+
+    showScreen(screenId) {
+        const screens = document.querySelectorAll('.screen');
+        screens.forEach(screen => {
+            screen.classList.remove('active');
+        });
+
+        const targetScreen = document.getElementById(screenId);
+        if (targetScreen) {
+            targetScreen.classList.add('active');
+            this.currentScreen = screenId;
+            this.updateBreadcrumb();
+        }
+
+        if (!this.storyMode) {
+            this.resetInactivityTimer();
+        }
+    }
 }
 
 let kioskApp;
@@ -154,6 +262,10 @@ function showPage(pageId) {
 
 function goHome() {
     kioskApp.goHome();
+}
+
+function toggleStoryMode() {
+    kioskApp.toggleStoryMode();
 }
 
 function addTouchFeedback() {
