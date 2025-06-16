@@ -1,0 +1,380 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Portrait Mode Optimization (16:9 aspect ratio, taller than wider) */
+#app {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Screen Management */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* Touch-Optimized Buttons (minimum 48x48 pixels) */
+.touch-button {
+    min-width: 48px;
+    min-height: 48px;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #4CAF50;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.touch-button:hover,
+.touch-button:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.touch-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Welcome Screen */
+#welcome-screen {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.welcome-content {
+    max-width: 600px;
+    width: 100%;
+}
+
+.logo-container {
+    margin-bottom: 60px;
+}
+
+.logo-placeholder {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 60px 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.logo-placeholder h1 {
+    font-size: 4rem;
+    color: #2c3e50;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    color: #7f8c8d;
+    font-weight: 300;
+}
+
+.start-button {
+    font-size: 24px;
+    padding: 24px 48px;
+    min-width: 200px;
+    min-height: 80px;
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+}
+
+/* Main Menu */
+#main-menu {
+    padding: 40px;
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.menu-header h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+.home-button {
+    background: #3498db;
+    font-size: 16px;
+    min-width: 80px;
+    min-height: 60px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    flex: 1;
+    align-content: center;
+}
+
+.menu-item {
+    background: white;
+    border: 2px solid #e0e0e0;
+    padding: 40px 30px;
+    text-align: center;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #2c3e50;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item:hover {
+    border-color: #4CAF50;
+    background: #f8f9fa;
+}
+
+.menu-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.menu-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.menu-item p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    font-weight: 400;
+}
+
+/* Content Pages */
+.content-page {
+    padding: 40px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.page-header h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+.back-button {
+    background: #95a5a6;
+    font-size: 16px;
+    min-width: 120px;
+    min-height: 60px;
+}
+
+.content-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 20px;
+}
+
+.content-section {
+    margin-bottom: 40px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.content-section h3 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.content-section p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.image-placeholder {
+    background: #f8f9fa;
+    border: 2px dashed #ddd;
+    padding: 60px;
+    text-align: center;
+    border-radius: 12px;
+    margin: 30px 0;
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.service-item {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.service-item h3 {
+    font-size: 1.6rem;
+    color: #2c3e50;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.service-item p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Contact Info */
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.contact-item {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.contact-item h3 {
+    font-size: 1.6rem;
+    color: #2c3e50;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.contact-item p {
+    font-size: 1.3rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Responsive Design for Large Touchscreens */
+@media (min-height: 1200px) {
+    .logo-placeholder h1 {
+        font-size: 5rem;
+    }
+    
+    .tagline {
+        font-size: 2rem;
+    }
+    
+    .start-button {
+        font-size: 28px;
+        padding: 30px 60px;
+        min-height: 100px;
+    }
+    
+    .menu-item {
+        min-height: 250px;
+        padding: 50px 40px;
+    }
+    
+    .menu-icon {
+        font-size: 4rem;
+    }
+}
+
+/* Kiosk Mode Optimizations */
+@media (orientation: portrait) {
+    body {
+        overflow: hidden;
+    }
+    
+    /* Prevent text selection */
+    * {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    /* Prevent context menu */
+    body {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+}
+
+/* Scrollbar Styling for Content Areas */
+.content-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+.content-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 6px;
+}
+
+.content-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 6px;
+}
+
+.content-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}

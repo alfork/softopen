@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoftOpen - Interactive Kiosk</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="welcome-content">
+                <div class="logo-container">
+                    <div class="logo-placeholder">
+                        <h1>SoftOpen</h1>
+                        <p class="tagline">Innovation Through Technology</p>
+                    </div>
+                </div>
+                <button class="start-button touch-button" onclick="showMainMenu()">
+                    Start Exploring
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Navigation Menu -->
+        <div id="main-menu" class="screen">
+            <div class="menu-header">
+                <h2>Discover SoftOpen</h2>
+                <button class="home-button touch-button" onclick="goHome()">🏠 Home</button>
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item touch-button" onclick="showPage('company-story')">
+                    <div class="menu-icon">📖</div>
+                    <h3>Company Story</h3>
+                    <p>Learn about our journey</p>
+                </button>
+                <button class="menu-item touch-button" onclick="showPage('vision')">
+                    <div class="menu-icon">🔮</div>
+                    <h3>Our Vision</h3>
+                    <p>See where we're heading</p>
+                </button>
+                <button class="menu-item touch-button" onclick="showPage('services')">
+                    <div class="menu-icon">⚙️</div>
+                    <h3>Services</h3>
+                    <p>What we offer</p>
+                </button>
+                <button class="menu-item touch-button" onclick="showPage('contact')">
+                    <div class="menu-icon">📞</div>
+                    <h3>Contact</h3>
+                    <p>Get in touch</p>
+                </button>
+            </div>
+        </div>
+
+        <!-- Company Story Page -->
+        <div id="company-story" class="screen content-page">
+            <div class="page-header">
+                <h2>Our Company Story</h2>
+                <button class="back-button touch-button" onclick="showMainMenu()">← Back to Menu</button>
+            </div>
+            <div class="content-container">
+                <div class="content-section">
+                    <h3>Founded on Innovation</h3>
+                    <p>SoftOpen was established with a vision to bridge the gap between cutting-edge technology and practical business solutions. Our journey began with a simple belief: technology should empower, not complicate.</p>
+                </div>
+                <div class="content-section">
+                    <h3>Our Growth</h3>
+                    <p>From a small startup to a trusted technology partner, we've grown by staying true to our core values of innovation, quality, and customer satisfaction.</p>
+                </div>
+                <div class="image-placeholder">
+                    <p>📸 Company Timeline Image</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vision Page -->
+        <div id="vision" class="screen content-page">
+            <div class="page-header">
+                <h2>Our Vision</h2>
+                <button class="back-button touch-button" onclick="showMainMenu()">← Back to Menu</button>
+            </div>
+            <div class="content-container">
+                <div class="content-section">
+                    <h3>Shaping the Future</h3>
+                    <p>We envision a world where technology seamlessly integrates with human creativity to solve complex challenges and create meaningful experiences.</p>
+                </div>
+                <div class="content-section">
+                    <h3>Our Mission</h3>
+                    <p>To deliver innovative software solutions that transform businesses and enhance lives through thoughtful design and robust engineering.</p>
+                </div>
+                <div class="image-placeholder">
+                    <p>🚀 Vision Illustration</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Page -->
+        <div id="services" class="screen content-page">
+            <div class="page-header">
+                <h2>Our Services</h2>
+                <button class="back-button touch-button" onclick="showMainMenu()">← Back to Menu</button>
+            </div>
+            <div class="content-container">
+                <div class="services-grid">
+                    <div class="service-item">
+                        <h3>💻 Software Development</h3>
+                        <p>Custom applications tailored to your business needs</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>🌐 Web Solutions</h3>
+                        <p>Modern, responsive web applications and websites</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>📱 Mobile Apps</h3>
+                        <p>Native and cross-platform mobile applications</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>☁️ Cloud Services</h3>
+                        <p>Scalable cloud infrastructure and deployment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact" class="screen content-page">
+            <div class="page-header">
+                <h2>Contact Us</h2>
+                <button class="back-button touch-button" onclick="showMainMenu()">← Back to Menu</button>
+            </div>
+            <div class="content-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>📧 Email</h3>
+                        <p>hello@softopen.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📞 Phone</h3>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📍 Address</h3>
+                        <p>123 Innovation Drive<br>Tech City, TC 12345</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>🌐 Website</h3>
+                        <p>www.softopen.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
