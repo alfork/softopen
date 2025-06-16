@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manufacturing Education Innovation - Interactive Kiosk</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Breadcrumb Navigation -->
+        <div id="breadcrumb" class="breadcrumb-nav">
+            <span id="breadcrumb-text">Home</span>
+        </div>
+
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="welcome-content">
+                <div class="logo-container">
+                    <div class="logo-placeholder">
+                        <h1>Manufacturing Education Innovation</h1>
+                        <p class="tagline">Revolutionizing American Manufacturing Through Education</p>
+                        <p class="subtitle">ICR247 • GennFlex • Gakuto Club</p>
+                    </div>
+                </div>
+                <button class="start-button touch-button" onclick="showMainMenu()">
+                    Explore the Innovation
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Navigation Menu -->
+        <div id="main-menu" class="screen">
+            <div class="menu-header">
+                <h2>Discover the Innovation Ecosystem</h2>
+                <button class="home-button touch-button" onclick="goHome()">🏠 Home</button>
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item touch-button" onclick="showSection('about-ecosystem')">
+                    <div class="menu-icon">🌟</div>
+                    <h3>About the Innovation Ecosystem</h3>
+                    <p>Learn about the manufacturing skills gap and our solution</p>
+                </button>
+                <button class="menu-item touch-button" onclick="showSection('three-organizations')">
+                    <div class="menu-icon">🏢</div>
+                    <h3>The Three Organizations</h3>
+                    <p>ICR247, GennFlex, and Gakuto Club</p>
+                </button>
+                <button class="menu-item touch-button" onclick="showSection('revolutionary-methods')">
+                    <div class="menu-icon">⚙️</div>
+                    <h3>Revolutionary Methods</h3>
+                    <p>Hands-on learning and technology integration</p>
+                </button>
+                <button class="menu-item touch-button" onclick="showSection('impact-stories')">
+                    <div class="menu-icon">📈</div>
+                    <h3>Impact & Success Stories</h3>
+                    <p>Student success and economic impact</p>
+                </button>
+                <button class="menu-item touch-button" onclick="showSection('future-vision')">
+                    <div class="menu-icon">🚀</div>
+                    <h3>Future Vision</h3>
+                    <p>Continuous innovation and expanding access</p>
+                </button>
+                <button class="menu-item touch-button" onclick="showSection('contact-learn')">
+                    <div class="menu-icon">📞</div>
+                    <h3>Contact & Learn More</h3>
+                    <p>Get involved and connect with us</p>
+                </button>
+            </div>
+        </div>
+
+        <!-- About Ecosystem Section (Level 2) -->
+        <div id="about-ecosystem" class="screen section-page">
+            <div class="page-header">
+                <h2>About the Innovation Ecosystem</h2>
+                <div class="nav-buttons">
+                    <button class="back-button touch-button" onclick="showMainMenu()">← Back to Menu</button>
+                    <button class="home-button touch-button" onclick="goHome()">🏠 Home</button>
+                </div>
+            </div>
+            <div class="content-container">
+                <div class="subsection-grid">
+                    <button class="subsection-item touch-button" onclick="showSubsection('ecosystem-overview')">
+                        <h3>📋 Overview</h3>
+                        <p>Manufacturing skills gap challenge and our three-pillar solution</p>
+                    </button>
+                    <button class="subsection-item touch-button" onclick="showSubsection('key-statistics')">
+                        <h3>📊 Key Statistics</h3>
+                        <p>Critical data about the manufacturing workforce crisis</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ecosystem Overview Subsection (Level 3) -->
+        <div id="ecosystem-overview" class="screen content-page">
+            <div class="page-header">
+                <h2>Ecosystem Overview</h2>
+                <div class="nav-buttons">
+                    <button class="back-button touch-button" onclick="showSection('about-ecosystem')">← Back</button>
+                    <button class="home-button touch-button" onclick="goHome()">🏠 Home</button>
+                </div>
+            </div>
+            <div class="content-container">
+                <div class="detail-grid">
+                    <button class="detail-item touch-button" onclick="showDetail('skills-gap-challenge')">
+                        <h3>🎯 Manufacturing Skills Gap Challenge</h3>
+                        <p>Understanding the critical workforce shortage</p>
+                    </button>
+                    <button class="detail-item touch-button" onclick="showDetail('three-pillar-solution')">
+                        <h3>🏗️ The Solution: Three-Pillar Approach</h3>
+                        <p>How our ecosystem addresses the challenge</p>
+                    </button>
+                    <button class="detail-item touch-button" onclick="showDetail('why-matters-now')">
+                        <h3>⏰ Why This Matters Now</h3>
+                        <p>The urgency of manufacturing education reform</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Gap Challenge Detail (Level 4) -->
+        <div id="skills-gap-challenge" class="screen detail-page">
+            <div class="page-header">
+                <h2>Manufacturing Skills Gap Challenge</h2>
+                <div class="nav-buttons">
+                    <button class="back-button touch-button" onclick="showSubsection('ecosystem-overview')">← Back</button>
+                    <button class="home-button touch-button" onclick="goHome()">🏠 Home</button>
+                </div>
+            </div>
+            <div class="content-container">
+                <div class="content-section">
+                    <h3>The Critical Challenge</h3>
+                    <p>America stands at a critical juncture in manufacturing history, with an estimated 2.1 million manufacturing jobs potentially going unfilled by 2030. The traditional educational system has struggled to keep pace with the rapid technological advances transforming modern manufacturing, creating a significant disconnect between what students learn and what employers desperately need.</p>
+                </div>
+                <div class="content-section">
+                    <h3>Educational System Gaps</h3>
+                    <p>Traditional STEM programs often rely on theoretical instruction with limited practical application, failing to prepare students for the realities of modern manufacturing environments.</p>
+                </div>
+                <div class="content-section">
+                    <h3>Industry Needs</h3>
+                    <p>Modern manufacturing facilities frequently operate with idle equipment due to lack of trained personnel who can effectively utilize sophisticated automated systems.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Statistics Subsection (Level 3) -->
+        <div id="key-statistics" class="screen content-page">
+            <div class="page-header">
+                <h2>Key Statistics</h2>
+                <div class="nav-buttons">
+                    <button class="back-button touch-button" onclick="showSection('about-ecosystem')">← Back</button>
+                    <button class="home-button touch-button" onclick="goHome()">🏠 Home</button>
+                </div>
+            </div>
+            <div class="content-container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>2.1 Million</h3>
+                        <p>Manufacturing jobs potentially going unfilled by 2030</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>600,000</h3>
+                        <p>Current vacant manufacturing positions</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>3.8 Million</h3>
+                        <p>Expected manufacturing jobs by 2033</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Three Organizations Section (Level 2) -->
+        <div id="three-organizations" class="screen section-page">
+            <div class="page-header">
+                <h2>The Three Organizations</h2>
+                <div class="nav-buttons">
+                    <button class="back-button touch-button" onclick="showMainMenu()">← Back to Menu</button>
+                    <button class="home-button touch-button" onclick="goHome()">🏠 Home</button>
+                </div>
+            </div>
+            <div class="content-container">
+                <div class="subsection-grid">
+                    <button class="subsection-item touch-button" onclick="showSubsection('icr247-details')">
+                        <h3>🏭 ICR247</h3>
+                        <p>Advanced Manufacturing and Real-World Application</p>
+                    </button>
+                    <button class="subsection-item touch-button" onclick="showSubsection('gennflex-details')">
+                        <h3>🎓 GennFlex</h3>
+                        <p>Democratizing Technical Training</p>
+                    </button>
+                    <button class="subsection-item touch-button" onclick="showSubsection('gakuto-details')">
+                        <h3>🤝 Gakuto Club</h3>
+                        <p>Community-Centered STEM Excellence</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ICR247 Details (Level 3) -->
+        <div id="icr247-details" class="screen content-page">
+            <div class="page-header">
+                <h2>ICR247: Advanced Manufacturing</h2>
+                <div class="nav-buttons">
+                    <button class="back-button touch-button" onclick="showSection('three-organizations')">← Back</button>
+                    <button class="home-button touch-button" onclick="goHome()">🏠 Home</button>
+                </div>
+            </div>
+            <div class="content-container">
+                <div class="detail-grid">
+                    <button class="detail-item touch-button" onclick="showDetail('icr247-overview')">
+                        <h3>🏢 Company Overview</h3>
+                        <p>Founded 2015, Wheeling IL - Advanced Manufacturing Focus</p>
+                    </button>
+                    <button class="detail-item touch-button" onclick="showDetail('icr247-services')">
+                        <h3>⚙️ Services & Expertise</h3>
+                        <p>CNC Machining, Robotics, Motion Control, Factory Automation</p>
+                    </button>
+                    <button class="detail-item touch-button" onclick="showDetail('icr247-education')">
+                        <h3>🎓 Educational Programs</h3>
+                        <p>Apprenticeships, Paid Learning, Real-World Application</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ICR247 Overview Detail (Level 4) -->
+        <div id="icr247-overview" class="screen detail-page">
+            <div class="page-header">
+                <h2>ICR247 Company Overview</h2>
+                <div class="nav-buttons">
+                    <button class="back-button touch-button" onclick="showSubsection('icr247-details')">← Back</button>
+                    <button class="home-button touch-button" onclick="goHome()">🏠 Home</button>
+                </div>
+            </div>
+            <div class="content-container">
+                <div class="content-section">
+                    <h3>Founded on Innovation</h3>
+                    <p>ICR247, founded in 2015 and headquartered in Wheeling, Illinois, represents the practical application cornerstone of this educational revolution. The company specializes in providing small and medium-sized enterprises with state-of-the-art automation solutions that enhance productivity and efficiency.</p>
+                </div>
+                <div class="content-section">
+                    <h3>Dual Mission</h3>
+                    <p>What sets ICR247 apart is its dual mission of driving industrial progress while simultaneously advancing educational opportunities. The company operates apprenticeship programs that provide students with paid learning opportunities combining theoretical knowledge with practical application.</p>
+                </div>
+                <div class="content-section">
+                    <h3>Industry Experience</h3>
+                    <p>The company's expertise spans CNC machining, robotics, motion control, and factory automation, with over five years of combined industry experience servicing leading brands like Yaskawa.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact & Learn More Section (Level 2) -->
+        <div id="contact-learn" class="screen section-page">
+            <div class="page-header">
+                <h2>Contact & Learn More</h2>
+                <div class="nav-buttons">
+                    <button class="back-button touch-button" onclick="showMainMenu()">← Back to Menu</button>
+                    <button class="home-button touch-button" onclick="goHome()">🏠 Home</button>
+                </div>
+            </div>
+            <div class="content-container">
+                <div class="subsection-grid">
+                    <button class="subsection-item touch-button" onclick="showSubsection('organizations-contact')">
+                        <h3>🏢 Organizations</h3>
+                        <p>Contact information for ICR247, GennFlex, and Gakuto Club</p>
+                    </button>
+                    <button class="subsection-item touch-button" onclick="showSubsection('get-involved')">
+                        <h3>🤝 Get Involved</h3>
+                        <p>Training programs, apprenticeships, and partnerships</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Organizations Contact (Level 3) -->
+        <div id="organizations-contact" class="screen content-page">
+            <div class="page-header">
+                <h2>Organizations Contact</h2>
+                <div class="nav-buttons">
+                    <button class="back-button touch-button" onclick="showSection('contact-learn')">← Back</button>
+                    <button class="home-button touch-button" onclick="goHome()">🏠 Home</button>
+                </div>
+            </div>
+            <div class="content-container">
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h3>🏭 ICR247</h3>
+                        <p><strong>Location:</strong> Wheeling, Illinois</p>
+                        <p><strong>Founded:</strong> 2015</p>
+                        <p><strong>Focus:</strong> Advanced Manufacturing & Automation Solutions</p>
+                        <p><strong>Website:</strong> icr247.com</p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>🎓 GennFlex Inc.</h3>
+                        <p><strong>CEO:</strong> Anna Koretskov</p>
+                        <p><strong>Focus:</strong> Democratizing Technical Training</p>
+                        <p><strong>Achievement:</strong> First NIMS-accredited robotics training program</p>
+                        <p><strong>Website:</strong> gennflex.com</p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>🤝 Gakuto Club</h3>
+                        <p><strong>Type:</strong> 501(c)(3) STEM Nonprofit</p>
+                        <p><strong>Location:</strong> Wheeling, Illinois</p>
+                        <p><strong>Mission:</strong> Community-centered STEM education</p>
+                        <p><strong>Facility:</strong> Factory of the Future training center</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
