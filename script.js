@@ -155,6 +155,9 @@ class KioskApp {
     }
 
     goHome() {
+        if (this.storyMode) {
+            this.stopStoryMode();
+        }
         this.showScreen('welcome-screen');
     }
 
