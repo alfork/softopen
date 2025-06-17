@@ -1,61 +1,90 @@
 # Veo 3 Video Generator
 
-A Python script to generate AI videos using Google's Veo 3 model with your own images or video clips.
+A Python script for generating AI videos using Google's Veo 3 model with your own images or video clips. Uses the official Vertex AI REST API for direct integration.
 
 ## Features
 
-- Generate videos from single images using Veo 3
-- Support for PNG and JPEG input images
-- Configurable aspect ratios (16:9 or 9:16)
-- Command-line interface with comprehensive options
-- Automatic MIME type detection
-- Progress monitoring with status updates
-- Error handling and validation
+✅ **Command-line Interface** - Easy to use with comprehensive argument parsing
+✅ **Official Vertex AI REST API** - Uses Google's official REST API endpoints
+✅ **Multiple Image Formats** - Support for PNG and JPEG images (local files or GCS)
+✅ **Configurable Options** - Aspect ratio (16:9, 9:16), duration, seed, etc.
+✅ **Auto MIME Type Detection** - Automatically detects image format
+✅ **Progress Monitoring** - Real-time status updates during generation
+✅ **Error Handling** - Comprehensive validation and error messages
+✅ **Batch Processing** - Generate multiple videos from JSON configuration
 
 ## Prerequisites
 
-Before using this script, you need:
+- Google Cloud account with Vertex AI API enabled
+- Python 3.7+ with `requests` library
+- Google Cloud CLI (`gcloud`) installed and authenticated
+- Images accessible as local files or uploaded to Google Cloud Storage
+- Proper authentication configured
 
-1. **Google Cloud Account** with Vertex AI API enabled
-2. **Authentication** configured (see setup instructions below)
-3. **Python 3.7+** installed
-4. **Images uploaded to Google Cloud Storage** (GCS)
+## Setup
 
-## Setup Instructions
+### 1. Install Google Cloud CLI
 
-### 1. Install Dependencies
+Install the Google Cloud CLI if not already installed:
+
+```bash
+# On Linux/macOS
+curl https://sdk.cloud.google.com | bash
+exec -l $SHELL
+
+# Or use package manager
+# Ubuntu/Debian: sudo apt-get install google-cloud-cli
+# macOS: brew install google-cloud-sdk
+```
+
+### 2. Authenticate with Google Cloud
+
+```bash
+# Login to your Google Cloud account
+gcloud auth login
+
+# Set your project ID
+gcloud config set project YOUR_PROJECT_ID
+
+# Enable required APIs
+gcloud services enable aiplatform.googleapis.com
+```
+
+### 3. Install Python Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Set up Google Cloud Authentication
+### 4. Prepare Images
 
-You need to authenticate with Google Cloud. Choose one of these methods:
+You can use either local image files or images stored in Google Cloud Storage:
 
-#### Option A: Service Account Key (Recommended)
-1. Create a service account in Google Cloud Console
-2. Download the JSON key file
-3. Set the environment variable:
+**Option A: Local Images (Recommended)**
+- Place your images in a local directory
+- The script will automatically encode them for the API
+
+**Option B: Google Cloud Storage**
 ```bash
-export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your/service-account-key.json"
-```
+# Create a bucket (if you don't have one)
+gsutil mb gs://your-bucket-name
 
-#### Option B: Application Default Credentials
-```bash
-gcloud auth application-default login
-```
-
-### 3. Upload Your Images to Google Cloud Storage
-
-Upload your images to a GCS bucket:
-```bash
+# Upload your images
 gsutil cp /local/path/to/your-image.png gs://your-bucket-name/
 ```
 
 ## Usage
 
-### Basic Usage
+### Basic Usage with Local Image
+
+```bash
+python veo3_video_generator.py \
+  --prompt "A sunrise over a mountain range" \
+  --image-uri "/path/to/your/local-image.png" \
+  --output-uri "gs://your-bucket/output-folder/"
+```
+
+### Basic Usage with GCS Image
 
 ```bash
 python veo3_video_generator.py \
@@ -64,17 +93,24 @@ python veo3_video_generator.py \
   --output-uri "gs://your-bucket/output-folder/"
 ```
 
-### Advanced Usage with All Options
+### Advanced Usage
 
 ```bash
 python veo3_video_generator.py \
   --prompt "Ocean waves crashing on the shore" \
-  --image-uri "gs://your-bucket/ocean.jpg" \
+  --image-uri "/path/to/ocean.jpg" \
   --output-uri "gs://your-bucket/videos/" \
   --aspect-ratio "9:16" \
-  --mime-type "image/jpeg" \
-  --duration 10 \
+  --duration 8 \
   --seed 12345
+```
+
+### Text-to-Video (No Image)
+
+```bash
+python veo3_video_generator.py \
+  --prompt "A cat walking through a neon-lit city at night" \
+  --duration 5
 ```
 
 ## Command Line Arguments
